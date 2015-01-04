@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://org.opencloudb/">
+
+	<tables>
+		<table name="cust_order" mycatHost="mycat_1" />
+		<table name="cust_933" mycatHost="mycat_1" />
+		<rugularTable>
+			<table name="$cust" mycatHost="mycat_1" />
+			<table name="cust[0-9]{2}" mycatHost="mycat_1" />
+		</rugularTable>
+	</tables>
+
+	<mycatHost name="mycat_1">
+		<url>jdbc:mysql://127.0.0.1:3307/db1</url>
+		<username>root</username>
+		<password>admin</password>
+		<minCon>10</minCon>
+		<maxCon>100</maxCon>
+		<heartbeat>select user()</heartbeat>
+		<timeout>10</timeout>
+	</mycatHost>
+
+	<mycatHost name="mycat_2">
+		<url>jdbc:mysql://127.0.0.1:3308/db1</url>
+		<username>root</username>
+		<password>admin</password>
+		<minCon>10</minCon>
+		<maxCon>100</maxCon>
+		<heartbeat>select user()</heartbeat>
+		<timeout>10</timeout>
+	</mycatHost>
+
+	<mycatHost name="mycat_3">
+		<url>jdbc:mysql://127.0.0.1:3309/db1</url>
+		<username>root</username>
+		<password>admin</password>
+		<minCon>10</minCon>
+		<maxCon>100</maxCon>
+		<heartbeat>select user()</heartbeat>
+		<timeout>10</timeout>
+	</mycatHost>
+</mycat:schema>
